@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student data table</title>
+</head>
+<style>
+
+    .dashboard {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    .dashboard-button {
+        padding: 20px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        text-align: center;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .dashboard-button:hover {
+        background-color: #0056b3;
+    }
+</style>
+<body>
+    <table border="2">
+        <tr>
+            <th>Form Id</th>
+            <th>Student Name</th>
+            <th>Father_name</th>
+            <th>Mother_name</th>
+            <th>Dob</th>
+            <th>Address</th>
+            <th>Mobile</th>
+            <th>Email</th>
+            <th>Course</th>
+            <th>Date</th>
+            <th>Action</th>
+            
+        </tr>
+        {% for data in datas %}
+        <tr>
+            <td>{{data[0]}}</td>
+            <td>{{data[1]}}</td>
+            <td>{{data[2]}}</td>
+            <td>{{data[3]}}</td>
+            <td>{{data[4]}}</td>
+            <td>{{data[5]}}</td>
+            <td>{{data[6]}}</td>
+            <td>{{data[7]}}</td>
+            <td>{{data[8]}}</td>
+            <td><a href="/delete/{{data[0]}}">del</a>
+            <a href="/update/{{data[0]}}">edit</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+
+   
+    <div class="dashboard">
+        <a href="{{ url_for('enquiryform') }}" class="dashboard-button">Add more Data</Data></a> 
+        <a href="{{ url_for('index') }}" class="dashboard-button">Go to Home Page </Data></a>
+
+    </div>
+    
+</body>
+</html>

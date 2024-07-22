@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student data table</title>
+</head>
+
+<style>
+    /* body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    } */
+
+    .dashboard {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    .dashboard-button {
+        padding: 20px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        text-align: center;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .dashboard-button:hover {
+        background-color: #0056b3;
+    }
+</style>
+<body>
+    <table border="2">
+        <tr>
+            <th>Attendance Id</th>
+            <th>Attendance Type</th>
+            <th>Attendee Id</th>
+            <th>Timing In</th>
+            <th>Timing Out</th>
+            <th>Attendance Date</th>
+            <th>Action</th>
+
+
+            
+        </tr>
+        {% for data in datas %}
+        <tr>
+            <td>{{data[0]}}</td>
+            <td>{{data[1]}}</td>
+            <td>{{data[2]}}</td>
+            <td>{{data[3]}}</td>
+            <td>{{data[4]}}</td>
+            <td>{{data[5]}}</td>
+            <td><a href="/delete/{{data[0]}}">del</a>
+                <a href="/update/{{data[0]}}">edit</a></td>
+            
+        {% endfor %}
+    </table>
+    <br>
+
+   
+    <div class="dashboard">
+        <a href="{{ url_for('attendanceform') }}" class="dashboard-button">Add more Data</Data></a> 
+        <a href="{{ url_for('index') }}" class="dashboard-button">Go to Home Page </Data></a>
+
+    </div>
+    
+</body>
+</html>

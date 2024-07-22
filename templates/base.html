@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .dashboard-button {
+            padding: 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dashboard-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <a href="{{ url_for('attendanceform') }}" class="dashboard-button">Attendance</a>
+        <a href="{{ url_for('courseform') }}" class="dashboard-button">Course</a>
+        <a href="{{ url_for('enquiryform') }}" class="dashboard-button">Enquiry</a>
+        <a href="{{ url_for('guardianform') }}" class="dashboard-button">Guardian</a>
+        <a href="{{ url_for('staffform') }}" class="dashboard-button">Staff</a>
+        <a href="{{ url_for('studentform') }}" class="dashboard-button">Student</a>
+        <a href="{{ url_for('teachersform') }}" class="dashboard-button">Teacher</a>
+    </div>
+</body>
+</html>
